@@ -1,3 +1,6 @@
+Важно! Перед упаковкой в библиотеке react-open-weather нужно найти и поменять все относительные ссылки (обращение к апи) на абсолютные. В том числе в файле
+lib/ReactWeather.js
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
