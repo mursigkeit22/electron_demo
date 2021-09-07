@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React, { Component }  from 'react';
+import ReactWeather, { useOpenWeather } from 'react-open-weather';
 import './App.css';
 
+
+
 function App() {
+  const { data, isLoading, errorMessage } = useOpenWeather({
+    key: '733fdb49543252a3d7b8018ec57aa206',
+    lat: '55.751244',
+    lon: '37.618423',
+    lang: 'en',
+    unit: 'metric', // values are (metric, standard, imperial)
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <ReactWeather
+            isLoading={isLoading}
+            errorMessage={errorMessage}
+            data={data}
+            lang="en"
+            locationLabel="Moscow"
+            unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
+            showForecast
+        />
+      </div>
   );
 }
 
